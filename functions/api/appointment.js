@@ -11,12 +11,12 @@ export async function onRequestPost(context) {
             "Content-Type": "application/json"
         },
 
-        // veritas@jgals.in
+        // veritas@jgals.in // official email 
         body: JSON.stringify({
 
             from: "JGALS-Website <onboarding@resend.dev>",
 
-            to: ["veritas@jgals.in"],
+            to: ["veritas@jgals.in"],  
 
             subject: "New Appointment Booking",
 

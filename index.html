@@ -37,6 +37,8 @@
     
       gtag('config', 'G-KK6PYTCH0P');
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   </head>
   <body>
     <header class="site-header" style="background: rgba(16, 18, 23, 0.82);" data-header>
@@ -576,6 +578,12 @@
             });
 
         });
+
+      // Supabase initialization
+      const supabase = window.supabase.createClient(
+          "https://ovptaxwqtltvqchpjnhj.supabase.co/rest/v1/",
+          "sb_publishable_Qhz7_xOmhQFo_jvlnPyVAg_1XQtyGMb"
+      );
     </script>
   </body>
 

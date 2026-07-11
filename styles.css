@@ -128,7 +128,7 @@ a {
   text-decoration: none;
 }
 
-.site-header {
+/*.site-header {
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 10;
@@ -143,6 +143,87 @@ a {
     background 180ms ease,
     border-color 180ms ease,
     box-shadow 180ms ease;
+}*/
+
+.site-header
+ {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 14px clamp(18px, 4vw, 52px);
+    /*background: rgba(16, 18, 23, .82);*/
+    background: rgba(8, 8, 8, 0.94);
+    color: var(--white);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+
+.article-page {
+    min-height: 100vh;
+    padding: 128px clamp(18px, 5vw, 72px) 72px;
+    background: linear-gradient(180deg, rgba(19, 40, 58, .08), rgba(255, 255, 255, 0) 320px), var(--ivory);
+}
+
+.article-shell {
+    max-width: 920px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid var(--stone);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.article-hero
+ {
+    width: 100%;
+    aspect-ratio: 16 / 8;
+    object-fit: cover;
+}
+
+.article-shell time {
+    display: block;
+    margin-top: 34px;
+    color: var(--gold);
+    font-weight: 800;
+    font-size: 13px;
+}
+
+.article-shell time, .article-shell h1, .article-shell p, .article-shell .btn {
+    margin-left: clamp(20px, 5vw, 56px);
+    margin-right: clamp(20px, 5vw, 56px);
+}
+
+.article-shell h1 {
+    margin-top: 10px;
+    max-width: 760px;
+    color: var(--charcoal);
+    font-size: clamp(34px, 5vw, 62px);
+}
+
+.article-shell time, .article-shell h1, .article-shell p, .article-shell .btn {
+    margin-left: clamp(20px, 5vw, 56px);
+    margin-right: clamp(20px, 5vw, 56px);
+}
+
+.article-shell p {
+    color: #303640;
+    font-size: 18px;
+}
+
+.article-shell .btn {
+    margin-top: 20px;
+    margin-bottom: 46px;
+}
+.article-shell time, .article-shell h1, .article-shell p, .article-shell .btn {
+    margin-left: clamp(20px, 5vw, 56px);
+    margin-right: clamp(20px, 5vw, 56px);
 }
 
 .site-header.is-scrolled,

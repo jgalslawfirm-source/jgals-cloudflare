@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>J'GALS Law Firm | Blogs</title>
+  <!-- Add favicon link below -->
+  <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
+
+   <!-- FontAwesome for Premium Icons -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../functions/api/blog_operation.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    console.log("window.supabase =", window.supabase);
+      console.log("typeof supabase =", typeof supabase);
+      // Supabase initialization
+      const supabase_var = window.supabase.createClient(
+          "https://ovptaxwqtltvqchpjnhj.supabase.co",
+          "sb_publishable_Qhz7_xOmhQFo_jvlnPyVAg_1XQtyGMb"
+      );
+  </script>
+</head>
+<body class="blog-page">
+  <header class="site-header">
+    <a class="brand" href="../index.html#home" aria-label="J'GALS Law Firm home">
+      <img src="../assets/logo.jpeg" alt="J'GALS Law Firm logo">
+      <span><strong>J'GALS Law Firm</strong><small>Advocates & Legal Consultants</small></span>
+    </a>
+    <nav class="site-nav blog-nav"><a href="../index.html#blog">Back to Blog</a><a href="../index.html#consultation">Book Appointment</a></nav>
+  </header>
+  <main class="article-page">
+    <article class="article-shell">
+      <img id="blog-image" class="article-hero" src="" alt="Blog Cover">
+      <time id="blog-date" datetime=""></time>
+      <h1 id="blog-title"></h1>
+      <div id="blog-content"></div>
+      <!--<p class="article-lead">Documents are often the backbone of a legal matter. Organized records help establish facts, support claims, and prepare stronger responses.</p>
+      <p>Keep agreements, messages, receipts, bank records, notices, photographs, medical records, ownership papers, and complaint copies safely. Avoid altering or deleting original material.</p>
+      <p>Arrange documents by date and category. A simple index can save time during consultation and make it easier to identify missing papers or urgent gaps.</p>
+      <p>For digital evidence, preserve screenshots, message exports, transaction IDs, emails, and device details. Share copies with your advocate in a format that is easy to review.</p>-->
+      <div class="row" style="margin: 0 auto;">
+        <a class="btn" style="background-color: #b8afa0;" href="../index.html#blog">< Back to Blog</a><a class="btn primary" href="../index.html#consultation">Book Appointment</a>
+      </div>
+    </article>
+  </main>
+
+  <div class="share-fab">
+
+        <button id="shareToggle" class="share-main">
+            <i class="fa-solid fa-share-nodes"></i>
+        </button>
+
+        <div id="shareMenu" class="share-menu">
+
+            <a id="shareWhatsapp" onclick="initShare()" target="_blank" title="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+            <a id="shareFacebook" onclick="initShare()" target="_blank" title="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+            <a id="shareLinkedIn" onclick="initShare()" target="_blank" title="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+
+            <a id="shareX" onclick="initShare()" target="_blank" title="X">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+
+            <a id="shareInstagram" onclick="initShare()" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+  <style>
+    .btn.primary {
+        background: var(--gold);
+        color: #17120a;
+    }
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 12px 20px;
+        border-radius: var(--radius);
+        border: 1px solid transparent;
+        font-weight: 800;
+        cursor: pointer;
+        transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .article-shell h2 {
+        margin-left: clamp(20px, 5vw, 56px);
+        margin-right: clamp(20px, 5vw, 56px);
+    }
+
+    .article-shell h2 {
+        color: #303640;
+        font-size: 18px;
+    }
+
+    .article-shell h3 {
+        margin-left: clamp(20px, 5vw, 56px);
+        margin-right: clamp(20px, 5vw, 56px);
+    }
+
+    .article-shell h3 {
+        color: #303640;
+        font-size: 18px;
+    }
+
+    .article-shell li {
+        margin-left: clamp(20px, 5vw, 56px);
+        margin-right: clamp(20px, 5vw, 56px);
+    }
+
+    .article-shell li {
+        color: #303640;
+        font-size: 16px;
+    }
+  </style>
+
+  <!-- Share option style -->
+   <style>
+    .share-fab{
+
+        position:fixed;
+
+        bottom:30px;
+        right:30px;
+
+        z-index:9999;
+    }
+
+    .share-main{
+
+        width:58px;
+        height:58px;
+
+        border:none;
+        border-radius:50%;
+
+        background:#caa55a;
+
+        color:#fff;
+
+        cursor:pointer;
+
+        font-size:22px;
+
+        box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+        transition:.3s;
+    }
+
+    .share-main:hover{
+
+        transform:scale(1.08);
+    }
+
+    .share-menu{
+
+        position:absolute;
+
+        bottom:70px;
+        right:0;
+
+        display:flex;
+        flex-direction:column;
+
+        gap:12px;
+
+        opacity:0;
+        visibility:hidden;
+
+        transform:translateY(20px);
+
+        transition:.3s;
+    }
+
+    .share-menu.show{
+
+        opacity:1;
+        visibility:visible;
+
+        transform:translateY(0);
+    }
+
+    .share-menu a{
+
+        width:48px;
+        height:48px;
+
+        border-radius:50%;
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        text-decoration:none;
+
+        color:#fff;
+
+        font-size:20px;
+
+        transition:.25s;
+    }
+
+    .share-menu a:hover{
+
+        transform:scale(1.1);
+    }
+
+    #shareWhatsapp{
+        background:#25D366;
+    }
+
+    #shareFacebook{
+        background:#1877F2;
+    }
+
+    #shareLinkedIn{
+        background:#0A66C2;
+    }
+
+    #shareX{
+        background:#000;
+    }
+
+    #shareInstagram{
+        background:#E4405F;
+    }
+   </style>
+
+   <!-- Scrirpt for share button -->
+   <script>
+    const toggle = document.getElementById("shareToggle");
+
+    const menu = document.getElementById("shareMenu");
+
+    toggle.addEventListener("click", () => {
+
+        menu.classList.toggle("show");
+
+    });
+
+    function initShare(){
+
+        const url = encodeURIComponent(window.location.href);
+
+        const text = encodeURIComponent(document.getElementById("blog-title").textContent);  // title
+
+        shareWhatsapp.href =
+            `https://wa.me/?text=${text}%20${url}`;
+
+        shareFacebook.href =
+            `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+
+        shareLinkedIn.href =
+            `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+
+        shareX.href =
+            `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+
+        shareInstagram.onclick = () => {
+
+            navigator.clipboard.writeText(window.location.href);
+
+            alert("Blog link copied. Paste it into Instagram Story, Bio, or Direct Message.");
+
+        };
+
+    }
+   </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", LoadContent);
+
+    async function LoadContent()
+    {
+        let imageURL = "";
+        const params = new URLSearchParams(window.location.search);
+
+        const blogId = params.get("id");
+
+        if (!blogId) {
+
+            alert("Blog not found.");
+
+            return;
+
+        }
+
+        const { data, error } = await supabase_var
+            .from("blogs")
+            .select("*")
+            .eq("id", blogId)
+            .single();
+
+        if (error) {
+
+            console.log(error);
+
+            return;
+
+        }
+
+        if(data.image)
+        {
+            imageURL = data.image;
+        }
+        else{
+            imageURL = "../assets/blog-placeholder-1.png"
+        }
+
+        document.getElementById("blog-title").textContent = data.title;
+
+        document.getElementById("blog-image").src = imageURL;
+
+        document.getElementById("blog-date").textContent = timeAgo(data.blogdate);
+
+        renderBlog(data.body);
+    }
+  </script>
+  <script>
+    function renderBlog(body) {
+
+        const container = document.getElementById("blog-content");
+
+        container.innerHTML = "";
+
+        const blocks = body.replace("\n","\n\n").replace("---","\n\n---\n\n").split(/\n\s*\n/);
+        console.log(blocks);
+        blocks.forEach(block => {
+
+            block = block.trim();
+
+            if (!block) return;
+
+            // H2
+            if (block.startsWith("# ")) {
+                const h2 = document.createElement("h2");
+                h2.textContent = block.substring(2);
+                container.appendChild(h2);
+                return;
+            }
+
+            if (block.startsWith("#") && !(block.includes("##"))) {
+
+                const h2 = document.createElement("h2");
+
+                h2.textContent = block.replace(/^#\s*/, "");
+
+                container.appendChild(h2);
+
+                return;
+            }
+
+            // H3
+            if (block.startsWith("## ")) {
+                const h3 = document.createElement("h3");
+                h3.textContent = block.substring(3);
+                container.appendChild(h3);
+                return;
+            }
+
+            if (block.startsWith("##")) {
+                const h3 = document.createElement("h3");
+                h3.textContent = block.replace(/^##\s*/, "");
+                container.appendChild(h3);
+                return;
+            }
+
+            // Horizontal Rule
+            if (block === "---") {
+                container.appendChild(document.createElement("hr"));
+                return;
+            }
+
+            // Bullet List
+            if (block.startsWith("* ")) {
+
+                const ul = document.createElement("ul");
+
+                block.split("\n").forEach(item => {
+                    const li = document.createElement("li");
+                    li.textContent = item.replace("* ", "");
+                    ul.appendChild(li);
+                });
+
+                container.appendChild(ul);
+                return;
+            }
+
+            if (block.startsWith("*")) {
+
+                const ul = document.createElement("ul");
+
+                block.split("\n").forEach(item => {
+
+                    item = item.trim();
+
+                    if (!item) return;
+
+                    const li = document.createElement("li");
+
+                    li.textContent = item.replace(/^\*\s*/, "");
+
+                    ul.appendChild(li);
+
+                });
+
+                container.appendChild(ul);
+
+                return;
+            }
+
+            // Paragraph
+            const p = document.createElement("p");
+            p.textContent = block;
+            container.appendChild(p);
+
+        });
+
+    }
+  </script>
+
+</body>
+</html>

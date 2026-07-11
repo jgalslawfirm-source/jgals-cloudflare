@@ -80,51 +80,164 @@
     </div>
 
   <style>
-    .btn.primary {
-        background: var(--gold);
-        color: #17120a;
-    }
-    .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 48px;
-        padding: 12px 20px;
-        border-radius: var(--radius);
-        border: 1px solid transparent;
-        font-weight: 800;
-        cursor: pointer;
-        transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    :root{
+        --gold:#C9A34E;
+        --text:#303640;
+        --light:#6b7280;
+        --radius:12px;
     }
 
-    .article-shell h2 {
-        margin-left: clamp(20px, 5vw, 56px);
-        margin-right: clamp(20px, 5vw, 56px);
+    /* Buttons */
+    .btn{
+        display:inline-flex !important;
+        align-items:center !important;
+        justify-content:center !important;
+        min-height:48px !important;
+        padding:12px 20px !important;
+        border-radius:var(--radius) !important;
+        border:1px solid transparent !important;
+        font-weight:700 !important;
+        cursor:pointer !important;
+        transition:.25s !important;
+        text-decoration:none !important;
     }
 
-    .article-shell h2 {
-        color: #303640;
-        font-size: 18px;
+    .btn.primary{
+        background:var(--gold) !important;
+        color:#17120a !important;
     }
 
-    .article-shell h3 {
-        margin-left: clamp(20px, 5vw, 56px);
-        margin-right: clamp(20px, 5vw, 56px);
+    .btn:hover{
+        transform:translateY(-2px) !important;
     }
 
-    .article-shell h3 {
-        color: #303640;
-        font-size: 18px;
+    /* Common spacing */
+    .article-shell h2,
+    .article-shell h3,
+    .article-shell p,
+    .article-shell ul,
+    .article-shell ol,
+    .article-shell blockquote,
+    .article-shell hr{
+        margin-left:clamp(20px,5vw,56px) !important;
+        margin-right:clamp(20px,5vw,56px) !important;
     }
 
-    .article-shell li {
-        margin-left: clamp(20px, 5vw, 56px);
-        margin-right: clamp(20px, 5vw, 56px);
+    /* H2 */
+    .article-shell h2{
+        margin-top:40px !important;
+        margin-bottom:18px !important;
+        color:#222 !important;
+        font-size:2rem !important;
+        font-weight:700 !important;
+        border-left:5px solid var(--gold) !important;
+        padding-left:14px !important;
     }
 
-    .article-shell li {
-        color: #303640;
-        font-size: 16px;
+    /* H3 */
+    .article-shell h3{
+        margin-top:30px !important;
+        margin-bottom:14px !important;
+        color:#303640 !important;
+        font-size:1.45rem !important;
+        font-weight:600 !important;
+    }
+
+    /* Paragraphs */
+    .article-shell p{
+        color:var(--text) !important;
+        font-size:17px !important;
+        line-height:1.9 !important;
+        margin-bottom:18px !important;
+        text-align:justify !important;
+    }
+
+    /* Lists */
+    .article-shell ul,
+    .article-shell ol{
+        margin-bottom:24px !important;
+        padding-left:40px !important;
+    }
+
+    .article-shell li{
+        color:var(--text) !important;
+        font-size:16px !important;
+        line-height:1.9 !important;
+        margin-bottom:10px !important;
+    }
+
+    .article-shell li::marker{
+        color:var(--gold) !important;
+        font-weight:bold !important;
+    }
+
+    /* Horizontal Rule */
+    .article-shell hr{
+        border:none !important;
+        height:1px !important;
+        background:#e3e3e3 !important;
+        margin-top:40px !important;
+        margin-bottom:40px !important;
+    }
+
+    /* Blockquote */
+    .article-shell blockquote{
+        border-left:4px solid var(--gold) !important;
+        background:#faf7f0 !important;
+        padding:16px 20px !important;
+        color:#555 !important;
+        font-style:italic !important;
+        margin-top:20px !important;
+        margin-bottom:20px !important;
+    }
+
+    /* Links */
+    .article-shell a{
+        color:var(--gold) !important;
+        text-decoration:none !important;
+        font-weight:600 !important;
+    }
+
+    .article-shell a:hover{
+        text-decoration:underline !important;
+    }
+
+    /* Images */
+    .article-shell img{
+        max-width:100% !important;
+        border-radius:10px !important;
+        margin:20px auto !important;
+        display:block !important;
+    }
+
+    /* Strong text */
+    .article-shell strong{
+        color:#17120a !important;
+        font-weight:700 !important;
+    }
+
+    .article-shell b{
+        color:#17120a !important;
+        font-weight:700 !important;
+    }
+
+    /* Code */
+    .article-shell code{
+        background:#f5f5f5 !important;
+        padding:2px 6px !important;
+        border-radius:4px !important;
+        font-size:15px !important;
+    }
+
+    /* Important box */
+    .article-shell .important{
+        margin:24px clamp(20px,5vw,56px) !important;
+        padding:18px 20px !important;
+        background:#fff8e6 !important;
+        border-left:5px solid var(--gold) !important;
+        border-radius:8px !important;
+        font-weight:600 !important;
+        color:#222 !important;
     }
   </style>
 

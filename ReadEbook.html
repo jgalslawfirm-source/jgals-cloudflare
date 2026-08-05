@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>J'GALS Law Firm | Blogs</title>
+  <!-- Add favicon link below -->
+  <link rel="icon" type="image/x-icon" href="./assets/favicon/favicon.ico">
+
+   <!-- FontAwesome for Premium Icons -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./blog_operation.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!--<script>
+    console.log("window.supabase =", window.supabase);
+      console.log("typeof supabase =", typeof supabase);
+      // Supabase initialization
+      const supabase_var = window.supabase.createClient(
+          "https://ovptaxwqtltvqchpjnhj.supabase.co",
+          "sb_publishable_Qhz7_xOmhQFo_jvlnPyVAg_1XQtyGMb"
+      );
+  </script>-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KK6PYTCH0P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-KK6PYTCH0P');
+    </script>
+</head>
+<body class="blog-page">
+  <header class="site-header">
+    <a class="brand" href="./index.html#home" aria-label="J'GALS Law Firm home">
+      <img src="./assets/JGals-Logo-Final.png" alt="J'GALS Law Firm logo">
+      <div class="brand-details">
+
+            <img class="brand-wordmark"
+                src="assets/Jgals-style-white-font-noBG-tilak.png"
+                alt="J'GALS">
+
+            <!--<div class="law-firm">Law Firm</div>-->
+
+            <div class="tagline">Serving Justice</div>
+
+        </div>
+    </a>
+    <nav class="site-nav blog-nav"><a href="./index.html">< Back</a></nav>
+  </header>
+  <section class="ebook-section">
+        <div class="section-heading">
+            <h2 id="title">Title</h2>
+        </div>
+        <iframe
+            id="pdfViewer"
+            src="https://drive.google.com/file/d/FILE_ID/preview"
+            width="100%"
+            height="800"
+            style="border:none; border-radius:10px;">
+        </iframe>
+  </section>
+
+  
+    <!-- Ebook Style -->
+     <style>
+        .ebook-section{
+            margin-top:5%;
+            padding: 10px;
+        }
+
+        .ebook-section h2{
+            font-size: 20px;
+        }
+
+    .ebook-header{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:20px 25px;
+        cursor:pointer;
+    }
+
+    .ebook-header h3{
+        color:#fff;
+        margin:0;
+    }
+
+    .ebook-header small{
+        color:#caa55a;
+    }
+
+    .expand-btn{
+        background:#caa55a;
+        color:#000;
+        border:none;
+        padding:10px 18px;
+        border-radius:8px;
+        font-weight:600;
+        cursor:pointer;
+    }
+
+    .tagline {
+        letter-spacing: 1.8px;
+    }
+
+    @media (max-width: 800px)
+    {
+        .ebook-section{
+            margin-top:30%;
+        }
+
+        .site-nav,
+        .header-cta {
+            display: block!important;
+        }
+
+    }
+  </style>
+
+  <!-- Ebooks script -->
+   <script>
+        $(document).ready(function(){
+           const params = new URLSearchParams(window.location.search);
+           const title = params.get("title");
+           const fileURL = params.get("file");
+           console.log(fileURL);
+           let cleanUrl = fileURL.replace(/^"|"$/g, "");
+            console.log(cleanUrl);
+           document.getElementById("title").innerText = title;
+           document.getElementById("pdfViewer").src = cleanUrl;
+        });
+   </script>
+
+  <style>
+    .btn.primary {
+        background: var(--gold);
+        color: #17120a;
+    }
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 12px 20px;
+        border-radius: var(--radius);
+        border: 1px solid transparent;
+        font-weight: 800;
+        cursor: pointer;
+        transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .article-shell h2 {
+        margin-left: clamp(20px, 5vw, 56px);
+        margin-right: clamp(20px, 5vw, 56px);
+    }
+
+    .article-shell h2 {
+        color: #303640;
+        font-size: 18px;
+    }
+
+    .article-shell h3 {
+        margin-left: clamp(20px, 5vw, 56px);
+        margin-right: clamp(20px, 5vw, 56px);
+    }
+
+    .article-shell h3 {
+        color: #303640;
+        font-size: 18px;
+    }
+
+    .article-shell li {
+        margin-left: clamp(20px, 5vw, 56px);
+        margin-right: clamp(20px, 5vw, 56px);
+    }
+
+    .article-shell li {
+        color: #303640;
+        font-size: 16px;
+    }
+  </style>
+
+ 
+
+   
+  <!--<script>
+    function renderBlog(body) {
+
+        const container = document.getElementById("blog-content");
+
+        container.innerHTML = "";
+
+        const blocks = body.replace("\n","\n\n").replace("---","\n\n---\n\n").split(/\n\s*\n/);
+        console.log(blocks);
+        blocks.forEach(block => {
+
+            block = block.trim();
+
+            if (!block) return;
+
+            // H2
+            if (block.startsWith("# ")) {
+                const h2 = document.createElement("h2");
+                h2.textContent = block.substring(2);
+                container.appendChild(h2);
+                return;
+            }
+
+            if (block.startsWith("#") && !(block.includes("##"))) {
+
+                const h2 = document.createElement("h2");
+
+                h2.textContent = block.replace(/^#\s*/, "");
+
+                container.appendChild(h2);
+
+                return;
+            }
+
+            // H3
+            if (block.startsWith("## ")) {
+                const h3 = document.createElement("h3");
+                h3.textContent = block.substring(3);
+                container.appendChild(h3);
+                return;
+            }
+
+            if (block.startsWith("##")) {
+                const h3 = document.createElement("h3");
+                h3.textContent = block.replace(/^##\s*/, "");
+                container.appendChild(h3);
+                return;
+            }
+
+            // Horizontal Rule
+            if (block === "---") {
+                container.appendChild(document.createElement("hr"));
+                return;
+            }
+
+            // Bullet List
+            if (block.startsWith("* ")) {
+
+                const ul = document.createElement("ul");
+
+                block.split("\n").forEach(item => {
+                    const li = document.createElement("li");
+                    li.textContent = item.replace("* ", "");
+                    ul.appendChild(li);
+                });
+
+                container.appendChild(ul);
+                return;
+            }
+
+            if (block.startsWith("*")) {
+
+                const ul = document.createElement("ul");
+
+                block.split("\n").forEach(item => {
+
+                    item = item.trim();
+
+                    if (!item) return;
+
+                    const li = document.createElement("li");
+
+                    li.textContent = item.replace(/^\*\s*/, "");
+
+                    ul.appendChild(li);
+
+                });
+
+                container.appendChild(ul);
+
+                return;
+            }
+
+            // Paragraph
+            const p = document.createElement("p");
+            p.textContent = block;
+            container.appendChild(p);
+
+        });
+
+    }
+  </script>-->
+
+</body>
+</html>

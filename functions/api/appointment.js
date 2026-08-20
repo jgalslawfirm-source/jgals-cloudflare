@@ -7,7 +7,7 @@ export async function onRequestPost(context) {
         method: "POST",
 
         headers: {
-            "Authorization": `Bearer re_JeDAvZmQ_22iKNY2nkinQyx8AsXC4h9aR`,
+            "Authorization": `Bearer ${context.env.RESEND_API_KEY}`,
             "Content-Type": "application/json"
         },
 

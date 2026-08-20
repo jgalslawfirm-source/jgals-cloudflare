@@ -16,7 +16,7 @@ export async function onRequestPost(context) {
 
             from: "JGALS-Website <onboarding@resend.dev>",
 
-            to: ["veritas@jgals.in"],  
+            to: ["lbagaitkar@gmail.com"],  
 
             subject: "New Appointment Booking",
 
